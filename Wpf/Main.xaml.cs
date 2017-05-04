@@ -78,7 +78,6 @@ namespace Wpf
             try
             {
                 msg.TerminalNo = short.Parse(Tool.GetConfigKeyValue("TERMINAL_NO"));
-                //int retCode = ReaderAPI.TA_ReadCard(ref msg, true, true);
                 int retCode = ReaderAPI.TA_ReadCardSimple(ref msg);
                 log.Info("读卡返回:" + retCode);
                 if (Tool.IsCardReaderExc &&(retCode==0 || retCode==-1222 || retCode==-1223))
@@ -95,6 +94,25 @@ namespace Wpf
                         ReaderAPI.TA_CRBeep(300);
                     }
                     Tool.IsCardReaderExc = true;//成功读取到卡片信息
+                    Tool.KeepAliveTickCount++;//定时保活标志
+
+                    if (Tool.NetWorkValidBeforeCharge)
+                    {
+                        key0k.IsEnabled = true;
+                    }
+                    else 
+                    {
+                        Task.Factory.StartNew(() =>
+                        {
+                            Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() =>
+                            {
+                                key0k.IsEnabled = false;
+                                key0k.Content = "网络检测..";
+                            }));
+                        });
+
+                    }
+
 
                     Task.Factory.StartNew(() =>
                     {
@@ -223,6 +241,7 @@ namespace Wpf
                 {
                     msg = new ReaderAPI.AccountMsg();//没读到卡，直接清空数据
                     Tool.IsCardReaderExc = false; //解锁
+                    Tool.NetWorkValidBeforeCharge = false;
                     key0k.IsEnabled = false;//没有读到卡片的时候，按钮处置为灰色
                 }
                 return retCode;
@@ -230,7 +249,9 @@ namespace Wpf
             catch (Exception ex)
             {
                 log.Error(ex.ToString());
-                //LogError(ex.Message);
+                Tool.NetWorkValidBeforeCharge = false;
+                Tool.IsCardReaderExc = false; //解锁
+                key0k.IsEnabled = false;//没有读到卡片的时候，按钮处置为灰色
                 return -1203;
             }
         }

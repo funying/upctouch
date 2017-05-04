@@ -34,6 +34,10 @@ namespace Wpf
         public static bool IsLoginPageInited = false;
         public static bool isDiyFristTimeShow = true;
         public static int KeepAliveTickCount = 0;
+        /// <summary>
+        /// 充值前网络是否通过网络验证
+        /// </summary>
+        public static bool NetWorkValidBeforeCharge = false;
 
         //public static void TurnToMyOrder()
         //{
