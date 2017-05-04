@@ -1,0 +1,126 @@
+﻿<Page x:Class="Wpf.Main"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1024" Loaded="Page_Loaded"
+	Title="Main">
+    <!--
+    <Page.Background>
+        <ImageBrush ImageSource="img\透明背景.png"></ImageBrush>
+    </Page.Background>
+    -->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="191*"/>
+            <ColumnDefinition Width="321*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="296,26,86,224" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="60*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="166*"/>
+                <ColumnDefinition Width="41*"/>
+                <ColumnDefinition Width="244*"/>
+                <ColumnDefinition Width="191*"/>
+            </Grid.ColumnDefinitions>
+
+
+
+            <Grid x:Name="LayoutRoot" Margin="0,40,1,22" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.2*"/>
+                    <!--
+                    <RowDefinition Height="0.2*"/>-->
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="chargeText" Text="请选择要充值的月份数量" Foreground="White" TextWrapping="Wrap" Height="100"  FontWeight="Medium"  FontSize="26" Grid.ColumnSpan="3" Margin="0,0,6,0" />
+ 
+                <Button Content="1" Margin="1" x:Name="key1" Grid.Row="1" FontSize="22" Focusable="False" x:FieldModifier="private" Click="key1_Click"/>
+                <Button Content="2" Margin="1" Grid.Column="1" x:Name="key2" Grid.Row="1" Focusable="False" FontSize="22" x:FieldModifier="private" Click="key2_Click"/>
+                <Button Content="3" Margin="1" Grid.Column="2" x:Name="key3" Grid.Row="1" Focusable="False" FontSize="22" x:FieldModifier="private" Click="key3_Click"/>
+
+                <Button Content="4" Margin="1" Grid.Row="2" x:Name="key4" FontSize="22" Focusable="False" x:FieldModifier="private" Click="key4_Click"/>
+                <Button Content="5" Margin="1" Grid.Row="2" Grid.Column="1" FontSize="22" Focusable="False" x:Name="key5" x:FieldModifier="private" Click="key5_Click"/>
+                <Button Content="6" Margin="1" Grid.Row="2" Grid.Column="2" FontSize="22" Focusable="False" x:Name="key6" x:FieldModifier="private" Click="key6_Click"/>
+                <!--
+                <Button Content="7" Margin="1" Grid.Row="2" x:Name="key7" FontSize="22" Focusable="False" x:FieldModifier="private" Click="key7_Click"/>
+                <Button Content="8" Margin="1" Grid.Row="2" Grid.Column="1" FontSize="22" Focusable="False" x:Name="key8" x:FieldModifier="private" Click="key8_Click"/>
+                <Button Content="9" Margin="1" Grid.Row="2" Grid.Column="2" FontSize="22" Focusable="False" x:Name="key9" x:FieldModifier="private" Click="key9_Click"/>
+
+                <Button Content="10" Margin="1" Grid.Row="3" x:Name="key10" FontSize="22" Focusable="False" x:FieldModifier="private" Click="key10_Click"/>
+                <Button Content="11" Margin="1" Grid.Row="3" Grid.Column="1" FontSize="22" Focusable="False" x:Name="key11" x:FieldModifier="private" Click="key11_Click"/>
+
+                <Button Content="12" Margin="1" Grid.Row="3" Grid.Column="21" FontSize="22" Focusable="False" x:Name="key12" x:FieldModifier="private" Click="key12_Click"/>
+                -->
+                <Button Content="取消" Margin="1,1,80,1" Grid.Row="4" FontSize="22" Focusable="False" Grid.ColumnSpan="2" x:Name="keyCancel" Click="keyCancel_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFFFCE49" Offset="0"/>
+                            <GradientStop Color="#FFF9B319" Offset="0.5"/>
+                            <GradientStop Color="#FFFFCE49" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="充值" Margin="110,1,1,1" Grid.Row="4" Grid.Column="1" FontSize="22" Focusable="False" x:Name="key0k" x:FieldModifier="private" Click="keyOk_Click" Grid.ColumnSpan="2" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF4FDE43" Offset="0"/>
+                            <GradientStop Color="#FF4EB832" Offset="0.5"/>
+                            <GradientStop Color="#FF4FDE43" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+                <!--<Button Content="确认充值" Margin="1" Grid.Row="4" FontSize="22" Focusable="False" Grid.ColumnSpan="3" x:Name="keyOk" Click="keyOk_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFFFCE49" Offset="0"/>
+                            <GradientStop Color="#FFF9B319" Offset="0.5"/>
+                            <GradientStop Color="#FFFFCE49" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>-->
+            </Grid>
+        </Grid>
+        <Grid Margin="10,51,472,188" Grid.ColumnSpan="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48*"/>
+                <ColumnDefinition Width="109*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+            </Grid.RowDefinitions>
+            <TextBlock  HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Text="姓       名：" FontSize="21"  Foreground="Black" Height="30" Width="97" Margin="0,0,0,0"/>
+            <TextBlock  HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Text="学       号：" FontSize="21"  Foreground="Black" Height="30"   Width="97" RenderTransformOrigin="0.495,2.821"/>
+            <TextBlock  HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="3" Text="账户状态：" FontSize="21"  Foreground="Black" Height="30" Width="97" Margin="0,10"/>
+            <TextBlock  HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="4" Text="账户余额：" FontSize="21"  Foreground="Black" Height="30" Width="97" Margin="0,10"/>
+            <TextBlock  HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Text="卡内余额：" FontSize="21"  Foreground="Black" Height="30" Width="97" Margin="0,10"/>
+            <TextBlock x:Name="txTotalPay" Visibility="Collapsed" HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="5" Text="充值金额：" FontSize="21"  Foreground="Black" Height="30" Width="97" Margin="0,10"/>
+            <TextBlock x:Name="Uname" Text="请读卡" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" FontSize="21"  Foreground="White" Height="30" Width="200" Margin="10,0,0,0" />
+            <TextBlock x:Name="UstudentCode" Text="请读卡" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" FontSize="21" Foreground="White" Height="30" Width="200" Margin="10,0,0,0"/>
+            <TextBlock x:Name="Usate"  Text="请读卡" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="3"  FontSize="21"  Foreground="White" Height="30" Width="200" Margin="10,0,0,0"/>
+            <TextBlock x:Name="UBalance" Text="0.00" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="4" FontSize="21"  Foreground="White" Height="30" Width="200" Margin="10,0,0,0"/>
+            <TextBlock x:Name="UcardBalance" Text="0.00" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"  FontSize="21"  Foreground="White" Height="30" Width="200" Margin="10,0,0,0"/>
+            <TextBlock x:Name="TotalToPay" Visibility="Collapsed" HorizontalAlignment="Left" Text="0.00" VerticalAlignment="Center" Grid.Column="1" Grid.Row="5"  FontSize="21"  Foreground="White" Height="30" Width="200" Margin="10,0,0,0"/>
+        </Grid>
+
+
+    </Grid>
+</Page>
