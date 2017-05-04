@@ -39,6 +39,8 @@ namespace Wpf
         bool checkSub = Boolean.Parse(Tool.GetConfigKeyValue("CHECK_SUB"));
         bool checkTempPack = Boolean.Parse(Tool.GetConfigKeyValue("CheckTempPack"));
         double payMonth = Convert.ToDouble(Tool.GetConfigKeyValue("COST_MONTH"));
+        string SAMIP = Tool.GetConfigKeyValue("samIP");
+        int SAMPORT = Convert.ToInt32(Tool.GetConfigKeyValue("samPORT"));
         FundAPI fd = new FundAPI();
         ReaderAPI.AccountMsg msg = new ReaderAPI.AccountMsg();
         DispatcherTimer dTimer = new System.Windows.Threading.DispatcherTimer();
@@ -51,6 +53,7 @@ namespace Wpf
         public DispatcherTimer dtReadCard = null;
         private Boolean isCharging = false;
         static object lock_tick = new object();
+        
         void dtReadCard_Tick(object sender, EventArgs e) 
         {
             lock (lock_tick)
@@ -73,6 +76,33 @@ namespace Wpf
             }
         }
 
+        private int TwoServerOnlineCheck()
+        {
+            //bool read = Read.PortIsOpen(SAMIP,SAMPORT);
+            //500ms如果返回没有成功则为失败
+            Telnet samT = new Telnet(SAMIP, SAMPORT, 500);
+            bool checkSam = samT.Connect();
+            string SIOS_IP = Tool.GetConfigKeyValue("SIOS_IP");
+            Telnet SIOST = new Telnet(SIOS_IP,8500, 500);
+            bool checkSIOS = SIOST.Connect();
+            if (checkSam && checkSIOS)
+            {
+                return 0;
+            }
+            else if (checkSam == true && checkSIOS == false)
+            {
+                return 9114;
+            }
+            else if (checkSam == false && checkSIOS == true)
+            {
+                return 9115;
+            }
+            else
+            {
+                return 9116;
+            }
+        }
+
         private int ReadCard()
         {
             try
@@ -80,6 +110,7 @@ namespace Wpf
                 msg.TerminalNo = short.Parse(Tool.GetConfigKeyValue("TERMINAL_NO"));
                 int retCode = ReaderAPI.TA_ReadCardSimple(ref msg);
                 log.Info("读卡返回:" + retCode);
+
                 if (Tool.IsCardReaderExc &&(retCode==0 || retCode==-1222 || retCode==-1223))
                 {
                     return 0;    
@@ -110,7 +141,8 @@ namespace Wpf
                                 key0k.Content = "网络检测..";
                             }));
                         });
-
+                        //Telnet p = new Telnet(SAMIP,SAMPORT,0);
+                        //bool connect = p.Connect();
                     }
 
 
@@ -242,7 +274,15 @@ namespace Wpf
                     msg = new ReaderAPI.AccountMsg();//没读到卡，直接清空数据
                     Tool.IsCardReaderExc = false; //解锁
                     Tool.NetWorkValidBeforeCharge = false;
-                    key0k.IsEnabled = false;//没有读到卡片的时候，按钮处置为灰色
+
+                    Task.Factory.StartNew(() =>
+                    {
+                        Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() =>
+                        {
+                            key0k.IsEnabled = false;//没有读到卡片的时候，按钮处置为灰色
+                        }));
+                    });
+                    
                 }
                 return retCode;
             }
@@ -251,7 +291,13 @@ namespace Wpf
                 log.Error(ex.ToString());
                 Tool.NetWorkValidBeforeCharge = false;
                 Tool.IsCardReaderExc = false; //解锁
-                key0k.IsEnabled = false;//没有读到卡片的时候，按钮处置为灰色
+                Task.Factory.StartNew(() =>
+                {
+                    Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() =>
+                    {
+                        key0k.IsEnabled = false;//没有读到卡片的时候，按钮处置为灰色
+                    }));
+                });
                 return -1203;
             }
         }
@@ -638,6 +684,12 @@ namespace Wpf
                     return "当前仅支持欠费用户充值，默认充值一个月网费";
                 case 9113:
                     return "扣费成功，缴费失败，请联系管理员";
+                case 9114:
+                    return "一卡通服务器连接异常，请联系管理员";
+                case 9115:
+                    return "SAM服务器访问异常，请联系管理员";
+                case 9116:
+                    return "一卡通服务器、SAM服务器访问异常，请联系管理员";
                 default:
                     return "系统异常";
             }

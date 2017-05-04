@@ -4,11 +4,33 @@ using System.Configuration;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Net;
+using System.Net.Sockets;
 
 namespace AIOAPI
 {
     public class Read
     {
+        public Read()
+        {
+
+        }
+        public static bool PortIsOpen(string IpStr,int port)
+        {
+            IPAddress ip = IPAddress.Parse(IpStr);
+            IPEndPoint point = new IPEndPoint(ip,port);
+            try
+            {
+                TcpClient tcp = new TcpClient();
+                tcp.Connect(point);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
     //    string b;
     //    string ip = ConfigurationManager.AppSettings["SIOS_IP"].ToString();//IP-第三方代理服务器SIOS的IP地址,
     //    Int16 port = Convert.ToInt16(ConfigurationManager.AppSettings["port"].ToString());
