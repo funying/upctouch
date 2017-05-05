@@ -107,6 +107,7 @@ namespace Wpf
             try
             {
                 msg.TerminalNo = short.Parse(Tool.GetConfigKeyValue("TERMINAL_NO"));
+                //int retCode = ReaderAPI.TA_ReadCard(ref msg, true, true);
                 int retCode = ReaderAPI.TA_ReadCardSimple(ref msg);
                 log.Info("读卡返回:" + retCode);
                 if (Tool.IsCardReaderExc && (retCode == 0 || retCode == -1222 || retCode == -1223))
@@ -114,6 +115,7 @@ namespace Wpf
                     return 0;
                 }
                 isCharging = false;
+
 
                 if (0 == retCode || retCode == -1222 || retCode == -1223)
                 {
@@ -302,6 +304,7 @@ namespace Wpf
                         key0k.IsEnabled = false;//没有读到卡片的时候，按钮处置为灰色
                     }));
                 });
+                //9999网络发生异常
                 return -9998;
             }
         }
@@ -930,6 +933,16 @@ namespace Wpf
 
         private void ChargeToYKT(Boolean isSingleMode) 
         {
+            //充值前再次确认网络是否ok
+            int doubleCheckNetWork = TwoServerOnlineCheck();
+            if (doubleCheckNetWork != 0)
+            {
+                //充值按钮点击前确认失败，重置
+                Tool.NetWorkValidBeforeCharge = false;
+                string networkErr = GetErrMsgByCode(doubleCheckNetWork);
+                MessageBox.Show(networkErr, "错误", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
+                return;
+            }
             if (Convert.ToDouble(TotalToPay.Text.ToString()) <= 0)
             {
                 MessageBox.Show("请选择要充值月数", "错误", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
@@ -956,10 +969,8 @@ namespace Wpf
             var task = new Task<int>(() =>
             {
                 //把耗时的操作放到这里 处理好返回结果
-                //Thread.Sleep(500);
-                //return 1;
-                int doubleCheckNetWork = TwoServerOnlineCheck();
-                return doubleCheckNetWork;
+                Thread.Sleep(500);
+                return 1;
             });
             task.ContinueWith(t =>
             {
@@ -968,7 +979,7 @@ namespace Wpf
                 //在把结果显示到界面 可以传参什么的
                 this.Dispatcher.BeginInvoke(new Action<int>((result) =>
                 {
-                    if (result == 0)
+                    if (true)
                     {
                         try
                         {
@@ -983,7 +994,7 @@ namespace Wpf
                             {
                                 decimal moneyToSam = Convert.ToDecimal(TotalToPay.Text);
                                 string fundResult = fd.getFund(UstudentCode.Text.Trim(), moneyToSam);
-                                log.Info(string.Format("Charge for user:{0},charge money:{1},SAM returns after recharging:{2}", UstudentCode.Text, moneyToSam, fundResult));
+                                log.Info(string.Format("Charge for user:{0},charge money:{1},SAM returns after recharging:{2}", UstudentCode.Text, moneyToSam,fundResult));
                                 if (string.IsNullOrEmpty(fundResult))
                                 {
                                     string moneydb = string.Empty;
@@ -1000,7 +1011,7 @@ namespace Wpf
                                         iss = Convert.ToDouble(UcardBalance.Text);
                                         Windowinfo.tucardbalance = (iss - Convert.ToDouble(moneydb)).ToString();
                                     }
-                                    catch (Exception ex)
+                                    catch(Exception ex)
                                     {
                                         log.Error(ex.ToString());
                                         Windowinfo.tucardbalance = "读取中，请返回首页查看";
@@ -1025,7 +1036,7 @@ namespace Wpf
                                                 Tool.CardBalance = (iss - Convert.ToDouble(moneydb)).ToString();
                                                 Tool.NetBalance = string.Format("{0:F}", (Convert.ToDouble(UBalance.Text.Trim()) + Convert.ToDouble(TotalToPay.Text)));
                                             }
-                                            catch (Exception ex)
+                                            catch(Exception ex)
                                             {
                                                 log.Error(ex.ToString());
                                                 Tool.CardBalance = "读取失败，请刷卡重试";
@@ -1040,7 +1051,7 @@ namespace Wpf
                                                 keyCancel.IsEnabled = true;
                                                 key0k.Content = "充值";
                                             }
-                                            else
+                                            else 
                                             {
                                                 chargeText.Text = "仅支持欠费用户充值，自动缴1个月网费";
                                             }
@@ -1081,7 +1092,7 @@ namespace Wpf
                                 return;
                             }
                         }
-                        catch (Exception ex)
+                        catch(Exception ex)
                         {
                             MessageBox.Show("充值失败,请重新尝试", "错误", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                             key0k.Content = "充值";
@@ -1090,17 +1101,6 @@ namespace Wpf
                             log.Error(ex.ToString());
                             return;
                         }
-                    }
-                    //充值按钮点击，再次确认此时网络状态
-                    else 
-                    {
-                        Tool.NetWorkValidBeforeCharge = false;
-                        Tool.IsCardReaderExc = false;//增加此逻辑，用于当用户在点击充值时，网络断开，发起重新刷卡和网络验证
-                        string networkErr = GetErrMsgByCode(result);
-                        MessageBox.Show(networkErr, "错误", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
-                        key0k.Content = "充值";
-                        keyCancel.IsEnabled = true;
-                        return;
                     }
                 }), t.Result);
             });
@@ -1394,7 +1394,6 @@ namespace Wpf
                 log.Info("初始化读卡器:" + iniCardReader.ToString());
                 if (iniCardReader != 0)
                 {
-                    key0k.IsEnabled = false;
                     MessageBox.Show("读卡器初始化失败，请排查读卡器连接是否正常", "错误", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                     return;
                 }

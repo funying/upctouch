@@ -47,13 +47,13 @@
 
                 <TextBlock x:Name="chargeText" Text="请选择要充值的月份数量" Foreground="White" TextWrapping="Wrap" Height="100"  FontWeight="Medium"  FontSize="26" Grid.ColumnSpan="3" Margin="0,0,6,0" />
  
-                <Button Content="1" Margin="1" x:Name="key1" Grid.Row="1" FontSize="22" Focusable="False" x:FieldModifier="private" Click="key1_Click"/>
-                <Button Content="2" Margin="1" Grid.Column="1" x:Name="key2" Grid.Row="1" Focusable="False" FontSize="22" x:FieldModifier="private" Click="key2_Click"/>
-                <Button Content="3" Margin="1" Grid.Column="2" x:Name="key3" Grid.Row="1" Focusable="False" FontSize="22" x:FieldModifier="private" Click="key3_Click"/>
+                <Button Content="充1个月" Margin="1" x:Name="key1" Grid.Row="1" FontSize="22" Focusable="False" x:FieldModifier="private" Click="key1_Click"/>
+                <Button Content="充2个月" Margin="1" Grid.Column="1" x:Name="key2" Grid.Row="1" Focusable="False" FontSize="22" x:FieldModifier="private" Click="key2_Click"/>
+                <Button Content="充3个月" Margin="1" Grid.Column="2" x:Name="key3" Grid.Row="1" Focusable="False" FontSize="22" x:FieldModifier="private" Click="key3_Click"/>
 
-                <Button Content="4" Margin="1" Grid.Row="2" x:Name="key4" FontSize="22" Focusable="False" x:FieldModifier="private" Click="key4_Click"/>
-                <Button Content="5" Margin="1" Grid.Row="2" Grid.Column="1" FontSize="22" Focusable="False" x:Name="key5" x:FieldModifier="private" Click="key5_Click"/>
-                <Button Content="6" Margin="1" Grid.Row="2" Grid.Column="2" FontSize="22" Focusable="False" x:Name="key6" x:FieldModifier="private" Click="key6_Click"/>
+                <Button Content="充4个月" Margin="1" Grid.Row="2" x:Name="key4" FontSize="22" Focusable="False" x:FieldModifier="private" Click="key4_Click"/>
+                <Button Content="充5个月" Margin="1" Grid.Row="2" Grid.Column="1" FontSize="22" Focusable="False" x:Name="key5" x:FieldModifier="private" Click="key5_Click"/>
+                <Button Content="充6个月" Margin="1" Grid.Row="2" Grid.Column="2" FontSize="22" Focusable="False" x:Name="key6" x:FieldModifier="private" Click="key6_Click"/>
                 <!--
                 <Button Content="7" Margin="1" Grid.Row="2" x:Name="key7" FontSize="22" Focusable="False" x:FieldModifier="private" Click="key7_Click"/>
                 <Button Content="8" Margin="1" Grid.Row="2" Grid.Column="1" FontSize="22" Focusable="False" x:Name="key8" x:FieldModifier="private" Click="key8_Click"/>
