@@ -790,123 +790,124 @@ namespace Wpf
                 case 0:
                     return "成功";
                 case 1:
-                    return "Err:1,版本不符";
+                    return "版本不符";
                 case 2:
-                    return "Err:2,返回码错误";
+                    return "返回码错误";
                 case 3:
-                    return "Err:3,数据长度错误";
+                    return "数据长度错误";
                 case 4:
-                    return "Err:4,文件名非法";
+                    return "文件名非法";
                 case 5:
-                    return "Err:5,文件非法访问";
+                    return "文件非法访问";
                 case 6:
-                    return "Err:6,操作失败";
+                    return "操作失败";
                 case 100:
-                    return "Err:100,记录不存在";
+                    return "记录不存在";
                 case 101:
-                    return "Err:101,下载文件失败";
+                    return "下载文件失败";
                 case 200:
-                    return "Err:200,读卡器网络异常";
+                    return "读卡器网络异常";
                 case 201:
-                    return "Err:201,文件发送出错";
+                    return "文件发送出错";
                 case 202:
-                    return "Err:202,数据接收出错";
+                    return "数据接收出错";
                 case 203:
-                    return "Err:203,文件接收出错";
+                    return "文件接收出错";
                 case 204:
-                    return "Err:204,发送文件出错";
+                    return "发送文件出错";
                 case 300:
-                    return "Err:300,子系统代码无效";
+                    return "子系统代码无效";
                 case 301:
-                    return "Err:301,站点号无效";
+                    return "站点号无效";
 
                 case 500:
-                    return "Err:500,加密卡头读取错误";
+                    return "加密卡头读取错误";
 
                 case 501:
-                    return "Err:501,读配置读取区错误";
+                    return "读配置读取区错误";
                 case 502:
-                    return "Err:502,密钥读取错误";
+                    return "密钥读取错误";
                 case 503:
-                    return "Err:503,加密卡打开失败";
+                    return "加密卡打开失败";
                 case 1001:
-                    return "Err:1001,SIOS没有运行";
+                    return "SIOS没有运行";
                 case 1002:
-                    return "Err:1002,DSQL操作错误";
+                    return "DSQL操作错误";
                 case 1003:
-                    return "Err:1003,缓冲区小，不能拷贝";
+                    return "缓冲区小，不能拷贝";
                 case 1004:
-                    return "Err:1004,解包出错";
+                    return "解包出错";
                 case 1005:
-                    return "Err:1005,重做业务";
+                    return "重做业务";
                 case 1006:
-                    return "Err:1006,未找到相片文件";
+                    return "未找到相片文件";
                 case 1007:
-                    return "Err:1007,指定文件不存在";
+                    return "指定文件不存在";
                 case 1100:
-                    return "Err:1100,指定文件已经存在";
+                    return "指定文件已经存在";
                 case 1101:
-                    return "Err:1101,操作被拒绝";
+                    return "操作被拒绝";
                 case 1102:
-                    return "Err:1102,没有文件";
+                    return "没有文件";
                 case 1103:
-                    return "Err:1103,删除文件失败";
+                    return "删除文件失败";
                 case 1104:
-                    return "Err:1104,通讯失败";
+                    return "通讯失败";
                 case 1200:
-                    return "Err:1200,交易额错误";
+                    return "交易额错误";
+
                 case 1201:
-                    return "Err:1201,第三方未初始化";
+                    return "第三方未初始化";
                 case 1202:
-                    return "Err:1202,读卡器错误";
+                    return "读卡器错误";
                 case 1203:
-                    return "Err:1203,读卡失败";
+                    return "读卡失败";
                 case 1204:
-                    return "Err:1204,写卡失败";
+                    return "写卡失败";
                 case 1205:
-                    return "Err:1205,功能调用限制";
+                    return "功能调用限制";
                 case 1206:
-                    return "Err:1206,不是消费卡";
+                    return "不是消费卡";
                 case 1207:
-                    return "Err:1207,非本院校卡";
+                    return "非本院校卡";
                 case 1208:
-                    return "Err:1208,过期卡";
+                    return "过期卡";
                 case 1209:
-                    return "Err:1209,修改卡次数失败";
+                    return "修改卡次数失败";
                 case 1210:
-                    return "Err:1210,写卡时卡号不符";
+                    return "写卡时卡号不符";
                 case 1211:
-                    return "Err:1211,卡消费密码错误";
+                    return "卡消费密码错误";
                 case 1212:
-                    return "Err:1212,卡内余额不足";
+                    return "卡内余额不足";
                 case 1213:
-                    return "Err:1213,超过消费限额";
+                    return "超过消费限额";
                 case 1214:
-                    return "Err:1214,挂失卡";
+                    return "挂失卡";
                 case 1215:
-                    return "Err:1215,冻结卡";
+                    return "冻结卡";
                 case 1216:
-                    return "Err:1216,卡号帐号不符";
+                    return "卡号帐号不符";
                 case 1217:
-                    return "Err:1217,身份关闭";
+                    return "身份关闭";
                 case 1218:
-                    return "Err:1218,加载链接库失败";
+                    return "加载链接库失败";
                 case 1219:
-                    return "Err:1219,读卡器初始化失败";
+                    return "读卡器初始化失败";
                 case 1220:
-                    return "Err:1220,参数错误";
+                    return "参数错误";
                 case 1221:
-                    return "Err:1221,没有该账户";
+                    return "没有该账户";
                 case 1222:
-                    return "Err:1222,补助成功";
+                    return "补助成功";
                 case 1223:
-                    return "Err:1223,补助失败";
+                    return "补助失败";
                 case 1224:
-                    return "Err:1224,当前打开多个登录页面";
+                    return "当前打开多个登录页面";
                 case 1225:
-                    return "Err:1225加载dll失败";
+                    return "加载dll失败";
                 case 9001:
-                    return "未查询到该帐号信息，请确认是否已开户";
+                    return "计费系统上没有查询到该帐号信息，请确认是否已开户";
                 case 9002:
                     return "计费系统查询出错，请确认帐号状态正常";
                 case 9003:
@@ -926,7 +927,7 @@ namespace Wpf
                 case 9116:
                     return "一卡通服务器、SAM服务器访问异常，请联系管理员";
                 case 9998:
-                    return "SAM+访问异常，扣款成功，缴费失败，请联系管理员";
+                    return "SAM+缴费服务器访问异常，扣款成功，缴费失败，请联系管理员";
                 default:
                     return "系统异常";
             }
@@ -1025,23 +1026,16 @@ namespace Wpf
                                         Windowinfo.tucardbalance = "读取中，请返回首页查看";
                                         Windowinfo.tubalance = "读取中，请返回首页查看";
                                     }
-                                    StopTimer();//显示成功界面后，停止读卡
                                     log.Info("---begin to show info window---");
                                     msg = new ReaderAPI.AccountMsg();
                                     Windowinfo wf = new Windowinfo();
                                     wf.Topmost = true;
                                     wf.ShowDialog();
-                                    //成功界面关闭以后，恢复读卡
-                                    StartTimer();
                                     //充值成功后，将用户数据清空
                                     isCharging = false;
                                     log.Info("---info window is closed---");
-                                    //充值成功以后更新余额的显示,当Single模式下不触发重新刷卡，防止再次扣款
-                                    if (MODE != "SINGLE")
-                                    {
-                                        Tool.IsCardReaderExc = false;
-                                    }
-                                    //当充值完毕以后，清空该值，强制一卡通进行再次读卡
+                                    //充值成功以后更新余额的显示
+
                                     Task.Factory.StartNew(() =>
                                     {
                                         Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() =>
@@ -1182,13 +1176,11 @@ namespace Wpf
                 moneyToPay = payMonth;
                 if (payMonth > msg.Balance / 100)
                 {
-                    StopTimer();
                     PopupElapseWindow popupElapseWindow = new PopupElapseWindow();
                     popupElapseWindow.Message = string.Format("选择充值{0}个月，每月金额{1}元，余额不足。", 1, payMonth);
                     popupElapseWindow.IsError = true;
                     popupElapseWindow.Interval = 3000;
                     popupElapseWindow.ShowDialog();
-                    StartTimer();
                     return;
                 }
                 TotalToPay.Text = String.Format("{0:F}", moneyToPay);
@@ -1200,13 +1192,11 @@ namespace Wpf
         {
             if (!Tool.IsCardReaderExc)
             {
-                StopTimer();
                 PopupElapseWindow popupElapseWindow = new PopupElapseWindow();
                 popupElapseWindow.Message = "请将卡片置于读卡器上，完成卡片信息读取";
                 popupElapseWindow.IsError = true;
                 popupElapseWindow.Interval = 3000;
                 popupElapseWindow.ShowDialog();
-                StartTimer();
                 return;
             }
 
@@ -1215,13 +1205,11 @@ namespace Wpf
                 moneyToPay = payMonth;
                 if (payMonth > msg.Balance / 100)
                 {
-                    StopTimer();
                     PopupElapseWindow popupElapseWindow = new PopupElapseWindow();
                     popupElapseWindow.Message = string.Format("选择充值{0}个月，每月金额{1}元，余额不足。", 1, payMonth);
                     popupElapseWindow.IsError = true;
                     popupElapseWindow.Interval = 3000;
                     popupElapseWindow.ShowDialog();
-                    StartTimer();
                     return;
                 }
                 TotalToPay.Text = String.Format("{0:F}", moneyToPay);
@@ -1235,13 +1223,11 @@ namespace Wpf
         {
             if (!Tool.IsCardReaderExc)
             {
-                StopTimer();
                 PopupElapseWindow popupElapseWindow = new PopupElapseWindow();
                 popupElapseWindow.Message = "请将卡片置于读卡器上，完成卡片信息读取";
                 popupElapseWindow.IsError = true;
                 popupElapseWindow.Interval = 3000;
-                popupElapseWindow.ShowDialog();
-                StartTimer();
+                popupElapseWindow.ShowDialog(); 
                 return;
             }
             if (!isCharging)
@@ -1249,13 +1235,11 @@ namespace Wpf
                 moneyToPay = payMonth * 2;
                 if (payMonth > msg.Balance / 100)
                 {
-                    StopTimer();
                     PopupElapseWindow popupElapseWindow = new PopupElapseWindow();
                     popupElapseWindow.Message = string.Format("选择充值{0}个月，每月金额{1}元，余额不足。", 2, payMonth);
                     popupElapseWindow.IsError = true;
                     popupElapseWindow.Interval = 3000;
                     popupElapseWindow.ShowDialog();
-                    StartTimer();
                     return;
                 }
                 TotalToPay.Text = String.Format("{0:F}", moneyToPay);
@@ -1269,13 +1253,11 @@ namespace Wpf
         {
             if (!Tool.IsCardReaderExc)
             {
-                StopTimer();
                 PopupElapseWindow popupElapseWindow = new PopupElapseWindow();
                 popupElapseWindow.Message = "请将卡片置于读卡器上，完成卡片信息读取";
                 popupElapseWindow.IsError = true;
                 popupElapseWindow.Interval = 3000;
                 popupElapseWindow.ShowDialog();
-                StartTimer();
                 return;
             }
             if (!isCharging)
@@ -1283,13 +1265,11 @@ namespace Wpf
                 moneyToPay = payMonth * 3;
                 if (payMonth > msg.Balance / 100)
                 {
-                    StopTimer();
                     PopupElapseWindow popupElapseWindow = new PopupElapseWindow();
                     popupElapseWindow.Message = string.Format("选择充值{0}个月，每月金额{1}元，余额不足。", 3, payMonth);
                     popupElapseWindow.IsError = true;
                     popupElapseWindow.Interval = 3000;
                     popupElapseWindow.ShowDialog();
-                    StartTimer();
                     return;
                 }
                 TotalToPay.Text = String.Format("{0:F}", moneyToPay);
@@ -1303,13 +1283,11 @@ namespace Wpf
         {
             if (!Tool.IsCardReaderExc)
             {
-                StopTimer();
                 PopupElapseWindow popupElapseWindow = new PopupElapseWindow();
                 popupElapseWindow.Message = "请将卡片置于读卡器上，完成卡片信息读取";
                 popupElapseWindow.IsError = true;
                 popupElapseWindow.Interval = 3000;
                 popupElapseWindow.ShowDialog();
-                StartTimer();
                 return;
             }
             if (!isCharging)
@@ -1317,13 +1295,11 @@ namespace Wpf
                 moneyToPay = payMonth * 4;
                 if (payMonth > msg.Balance / 100)
                 {
-                    StopTimer();
                     PopupElapseWindow popupElapseWindow = new PopupElapseWindow();
                     popupElapseWindow.Message = string.Format("选择充值{0}个月，每月金额{1}元，余额不足。", 4, payMonth);
                     popupElapseWindow.IsError = true;
                     popupElapseWindow.Interval = 3000;
                     popupElapseWindow.ShowDialog();
-                    StartTimer();
                     return;
                 }
                 TotalToPay.Text = String.Format("{0:F}", moneyToPay);
@@ -1337,13 +1313,11 @@ namespace Wpf
         {
             if (!Tool.IsCardReaderExc)
             {
-                StopTimer();
                 PopupElapseWindow popupElapseWindow = new PopupElapseWindow();
                 popupElapseWindow.Message = "请将卡片置于读卡器上，完成卡片信息读取";
                 popupElapseWindow.IsError = true;
                 popupElapseWindow.Interval = 3000;
                 popupElapseWindow.ShowDialog();
-                StartTimer();
                 return;
             }
             if (!isCharging)
@@ -1351,13 +1325,11 @@ namespace Wpf
                 moneyToPay = payMonth * 5;
                 if (payMonth > msg.Balance / 100)
                 {
-                    StopTimer();
                     PopupElapseWindow popupElapseWindow = new PopupElapseWindow();
                     popupElapseWindow.Message = string.Format("选择充值{0}个月，每月金额{1}元，余额不足。", 5, payMonth);
                     popupElapseWindow.IsError = true;
                     popupElapseWindow.Interval = 3000;
                     popupElapseWindow.ShowDialog();
-                    StartTimer();
                     return;
                 }
                 TotalToPay.Text = String.Format("{0:F}", moneyToPay);
@@ -1371,13 +1343,11 @@ namespace Wpf
         {
             if (!Tool.IsCardReaderExc)
             {
-                StopTimer();
                 PopupElapseWindow popupElapseWindow = new PopupElapseWindow();
                 popupElapseWindow.Message = "请将卡片置于读卡器上，完成卡片信息读取";
                 popupElapseWindow.IsError = true;
                 popupElapseWindow.Interval = 3000;
                 popupElapseWindow.ShowDialog();
-                StartTimer();
                 return;
             }
             if (!isCharging)
@@ -1385,13 +1355,11 @@ namespace Wpf
                 moneyToPay = payMonth * 6;
                 if (payMonth > msg.Balance / 100)
                 {
-                    StopTimer();
                     PopupElapseWindow popupElapseWindow = new PopupElapseWindow();
                     popupElapseWindow.Message = string.Format("选择充值{0}个月，每月金额{1}元，余额不足。", 6, payMonth);
                     popupElapseWindow.IsError = true;
                     popupElapseWindow.Interval = 3000;
                     popupElapseWindow.ShowDialog();
-                    StartTimer();
                     return;
                 }
                 TotalToPay.Text = String.Format("{0:F}", moneyToPay);
@@ -1523,7 +1491,7 @@ namespace Wpf
                     PopupElapseWindow popupElapseWindow = new PopupElapseWindow();
                     popupElapseWindow.Message = "读卡器初始化失败，请排查读卡器连接是否正常";
                     popupElapseWindow.IsError = true;
-                    popupElapseWindow.Interval = 300000;
+                    popupElapseWindow.Interval = 30000;
                     popupElapseWindow.ShowDialog();
                     return;
                 }

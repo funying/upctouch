@@ -94,6 +94,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
@@ -213,9 +214,6 @@
     <Resource Include="img\透明背景.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
@@ -228,7 +226,22 @@
     <Resource Include="img\按钮.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\logo_long.jpg" />
+    <Resource Include="ImagesVersion2\自选教室\书架.png" />
+    <Resource Include="ImagesVersion2\自选教室\值班台.png" />
+    <Resource Include="ImagesVersion2\自选教室\座椅红.png" />
+    <Resource Include="ImagesVersion2\自选教室\座椅绿.png" />
+    <Resource Include="ImagesVersion2\自选教室\浮层跳秒窗.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ImagesVersion2\自选教室\确定按键红色.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ImagesVersion2\自选教室\确定按键蓝色.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesVersion2\自选座位\浮层.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

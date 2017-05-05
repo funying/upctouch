@@ -10,13 +10,13 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     <Grid>
         <Grid>
             <Grid.Background>
-                <ImageBrush ImageSource="../ImagesVersion2/自选座位/浮层.png"/>
+                <ImageBrush ImageSource="..\ImagesVersion2\自选座位\浮层.png"/>
             </Grid.Background>
         </Grid>
         <Border x:Name="borderPopup" Grid.Column="1" 
-                VerticalAlignment="Center" Height="242" Width="462" HorizontalAlignment="Center">
+                VerticalAlignment="Center" Height="250" Width="460" HorizontalAlignment="Center">
             <Border.Background>
-                <ImageBrush ImageSource="../ImagesVersion2/自选教室/浮层跳秒窗.png"/>
+                <ImageBrush ImageSource="/Wpf;component/ImagesVersion2/自选教室/浮层跳秒窗.png"/>
             </Border.Background>
 
             <Grid>
@@ -30,8 +30,7 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     <TextBlock x:Name="tbCountNumber" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="25px" TextTrimming="WordEllipsis" Margin="0,0,15,0"/>
                 </Grid>
                 <TextBlock Grid.Row="1" x:Name="tbMsg" HorizontalAlignment="Center" Margin="0,0,0,-20"
-    						FontSize="23px" TextWrapping="Wrap" VerticalAlignment="Center"/>
-
+    						FontSize="18px" TextWrapping="Wrap" VerticalAlignment="Center"/>
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.15*"/>
@@ -39,11 +38,11 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                         <ColumnDefinition Width="0.05*"/>
                         <ColumnDefinition Width="0.45*"/>
                         <ColumnDefinition Width="0.15*"/>
-                    </Grid.ColumnDefinitions>
-                    <LeoTouch_Controls:ImageButton x:Name="ibtnOK" Grid.Column="1"  NormalImage="\ImagesVersion2\自选教室\确定按键蓝色.png" Stretch="Uniform" Content="确定" FontSize="30px" TextElement.Foreground="White" Width="145" Margin="15"
-								HoverImage="\ImagesVersion2\自选教室\确定按键蓝色.png" PressedImage="\ImagesVersion2\自选教室\确定按键蓝色.png" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="ibtnOK_Click"/>
-                    <LeoTouch_Controls:ImageButton x:Name="ibtnCancel" Grid.Column="3"  NormalImage="\ImagesVersion2\自选教室\确定按键红色.png" Stretch="Uniform" Content="取消" FontSize="30px" TextElement.Foreground="White" Width="145px"  Margin="15"
-								HoverImage="\ImagesVersion2\自选教室\确定按键红色.png" PressedImage="\ImagesVersion2\自选教室\确定按键红色.png" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsCancel="True"/>
+                    </Grid.ColumnDefinitions>                    
+                    <LeoTouch_Controls:ImageButton x:Name="ibtnOK" Grid.Column="1"  NormalImage="/Wpf;component/ImagesVersion2/自选教室/确定按键蓝色.png" Stretch="Uniform" Content="确定" FontSize="20px" TextElement.Foreground="White" Width="190px" Margin="0,15,0,15"
+								HoverImage="/Wpf;component/ImagesVersion2/自选教室/确定按键蓝色.png" PressedImage="/Wpf;component/ImagesVersion2/自选教室/确定按键蓝色.png" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="ibtnOK_Click" Visibility="Visible"/>
+                    <LeoTouch_Controls:ImageButton x:Name="ibtnCancel" Grid.Column="3"  NormalImage="/Wpf;component/ImagesVersion2/自选教室/确定按键红色.png" Stretch="Uniform" Content="取消" FontSize="20px" TextElement.Foreground="White" Width="190px"  Margin="-15,15,-15,15"
+								HoverImage="/Wpf;component/ImagesVersion2/自选教室/确定按键红色.png" PressedImage="/Wpf;component/ImagesVersion2/自选教室/确定按键红色.png" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsCancel="True" Visibility="Visible"/>
 
                 </Grid>
             </Grid>
